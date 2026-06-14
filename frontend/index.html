@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Horse Race Place Predictions</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="toolbar">
+        <div>
+          <h1>Race place predictions</h1>
+          <p>Upload a race-card workbook, then choose a racecourse and time.</p>
+        </div>
+        <form id="uploadForm" class="upload-form">
+          <label class="file-control">
+            <span>Race card</span>
+            <input id="raceFile" name="race_file" type="file" accept=".xlsx,.xls" required>
+          </label>
+          <label>
+            <span>Race sims</span>
+            <input id="nSims" name="n_sims" type="number" min="100" step="100" value="30000">
+          </label>
+          <label>
+            <span>Tune sims</span>
+            <input id="tuneSims" name="tune_sims" type="number" min="100" step="100" value="8000">
+          </label>
+          <button type="submit">Run predictions</button>
+        </form>
+      </section>
+
+      <section id="status" class="status idle">No race card loaded.</section>
+
+      <section class="filters">
+        <label>
+          <span>Racecourse</span>
+          <select id="courseSelect" disabled>
+            <option value="">Upload data first</option>
+          </select>
+        </label>
+        <label>
+          <span>Race time</span>
+          <select id="timeSelect" disabled>
+            <option value="">Select a course</option>
+          </select>
+        </label>
+        <div id="downloads" class="downloads"></div>
+      </section>
+
+      <section class="metrics" id="metrics"></section>
+
+      <section class="race-panel">
+        <div class="race-heading">
+          <h2 id="raceTitle">Select a race</h2>
+          <span id="raceMeta"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Horse</th>
+                <th>Bayesian place</th>
+                <th>LightGBM place</th>
+                <th>Bayesian win</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <tr>
+                <td colspan="4" class="empty">Predictions will appear here.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

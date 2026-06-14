@@ -1,0 +1,319 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6f2;
+  --panel: #ffffff;
+  --ink: #1f2623;
+  --muted: #68736d;
+  --line: #d9dfd8;
+  --accent: #146c5c;
+  --accent-2: #9d5f22;
+  --soft: #e8f1ee;
+  --danger: #9f2f2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 24px auto 40px;
+}
+
+.toolbar,
+.filters,
+.race-panel,
+.metrics {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(420px, 1.4fr);
+  gap: 24px;
+  padding: 22px;
+  align-items: end;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p,
+span,
+td,
+th,
+select,
+input,
+button,
+a {
+  font-size: 14px;
+}
+
+p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.upload-form {
+  display: grid;
+  grid-template-columns: 1.4fr 110px 110px auto;
+  gap: 10px;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+
+input,
+select {
+  padding: 0 10px;
+}
+
+input[type="file"] {
+  padding: 8px;
+}
+
+button {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.status {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+}
+
+.status.running {
+  border-color: #bad2cb;
+  background: var(--soft);
+  color: var(--accent);
+}
+
+.status.error {
+  border-color: #e4b8b8;
+  background: #fff4f4;
+  color: var(--danger);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  padding: 16px;
+  align-items: end;
+}
+
+.downloads {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.downloads a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.metric-card {
+  padding: 16px;
+  border-right: 1px solid var(--line);
+}
+
+.metric-card:last-child {
+  border-right: 0;
+}
+
+.metric-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.metric-grid div {
+  padding: 10px;
+  background: #f7f8f6;
+  border-radius: 6px;
+}
+
+.metric-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric-grid strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+.race-panel {
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.race-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+#raceMeta {
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--muted);
+  font-weight: 750;
+  background: #fafbf9;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.prob {
+  font-variant-numeric: tabular-nums;
+  font-weight: 760;
+}
+
+.bar-cell {
+  min-width: 180px;
+}
+
+.bar {
+  height: 8px;
+  margin-top: 7px;
+  background: #e6ebe7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.bar.secondary span {
+  background: var(--accent-2);
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 28px;
+}
+
+@media (max-width: 860px) {
+  .toolbar,
+  .upload-form,
+  .filters,
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .downloads {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .metric-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .metric-card:last-child {
+    border-bottom: 0;
+  }
+}
